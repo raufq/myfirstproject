@@ -3,9 +3,11 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:myfirstproject/data/JournalFormModel.dart';
 
 class JournalAppCard extends StatelessWidget{
-  const JournalAppCard({super.key});
+  final Journalformmodel journalformmodel;
+  const JournalAppCard({required this.journalformmodel,super.key});
   @override
   Widget build(BuildContext context) {
      return Card(
@@ -16,11 +18,11 @@ class JournalAppCard extends StatelessWidget{
          child: Column(
            crossAxisAlignment: CrossAxisAlignment.start,
            children: [
-       Text("Title"),
+       Text(journalformmodel.title),
        SizedBox.fromSize(size: Size.fromHeight(10)),
-       Text("details"),
+       Text(journalformmodel.detail),
        SizedBox.fromSize(size: Size.fromHeight(10)),
-       Text("date")
+       Text(journalformmodel.date)
      ],)));
   }
 

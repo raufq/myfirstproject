@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'JournalBottomSheetForm.dart';
 import 'Journal_app_card.dart';
+import 'data/data.dart';
 
 class JournalHome extends StatefulWidget{
   const JournalHome({super.key});
@@ -27,9 +28,9 @@ class _JournalHomeState extends State<JournalHome> {
           title: Text("Journal Home"),
         ),
         body: ListView.builder(
-          itemCount: 10,
+          itemCount: journalformmodelList.length,
           itemBuilder: (context, index) {
-            return JournalAppCard();
+            return JournalAppCard(journalformmodel: journalformmodelList[index]);
           },
         ),
 
@@ -40,7 +41,13 @@ class _JournalHomeState extends State<JournalHome> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                 ),
-                builder: (context) => Journalbottomsheetform());
+                builder: (context) => Journalbottomsheetform(
+                  onSave: (journalformmodel) {
+                    setState(() {
+                      journalformmodelList.add(journalformmodel);
+                    });
+                  }
+                ));
           },
           child: const Icon(Icons.add),
         )
