@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:myfirstproject/Journal_home.dart';
+import 'package:myfirstproject/restapis/CategoryScreen.dart';
 
 class MyHomeScreen extends StatelessWidget{
   const MyHomeScreen({super.key});
@@ -19,9 +20,12 @@ class MyHomeScreen extends StatelessWidget{
       ),
       ElevatedButton(
         onPressed: () {
-          print('Button Pressed!');
+          Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const CategoryScreen())
+          );
         },
-        child: const Text('Recipy app'),
+        child: const Text('Rest Api Calls'),
       )
     ],))
 
